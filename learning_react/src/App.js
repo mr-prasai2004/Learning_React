@@ -1,23 +1,30 @@
 import "./App.css";
-import img from "./Image/219983.png";
-let name = "Aayush";
 function App() {
   return (
     <>
-      <nav className="hi">
-        <li>About</li>
-        <li>Home</li>
-        <li>Contact US</li>
-      </nav>
-      <div className="container">
-        <h1>Hello {name} <img src={img} width="50px" height="50px"/></h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-          adipisci fuga, vero iste voluptatibus excepturi exercitationem quos
-          distinctio non itaque dolore. Maiores a sint voluptatibus odit quaerat
-          nesciunt, praesentium laborum, aut inventore deserunt corporis.
-        </p>
-      </div>
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+  <div className="container-fluid">
+    <a className="navbar-brand" href="/">LearningReact</a>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="/">About</a>
+        </li> 
+      </ul>
+      <form className="d-flex" role="search">
+        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button className="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
     </>
   );
 }
