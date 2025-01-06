@@ -2,6 +2,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Textform2 from "./components/Textform2";
+import TextForm3 from "./components/TextForm3";
 function App() {
   return (
     <>
@@ -11,6 +12,7 @@ function App() {
 <TextForm heading="Enter your text to analyze below"/>
 </div>
 <Textform2 />
+<TextForm3 />
     </>
   );
 }
