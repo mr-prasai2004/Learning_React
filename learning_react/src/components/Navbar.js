@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 export default function Navbar(props) {
+  // State to track the switch (ON/OFF)
+  const [isToggled, setIsToggled] = useState(false);
+
+  // Function to handle switch toggle
+  const handleToggle = () => {
+    setIsToggled(!isToggled);
+    console.log(isToggled ? "Switch is OFF" : "Switch is ON");
+  };
+
   return (
-    
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
@@ -33,19 +41,26 @@ export default function Navbar(props) {
               </a>
             </li>
           </ul>
-          <form className="d-flex" role="search">
+
+          {/* On/Off switch */}
+          <div className="form-check form-switch text-white">
             <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
+              className="form-check-input"
+              type="checkbox"
+              id="toggleSwitch"
+              checked={isToggled}
+              onChange={handleToggle}
             />
-            <button className="btn btn-outline-primary" type="submit">
-              Search
-            </button>
-          </form>
+            <label className="form-check-label" htmlFor="toggleSwitch">
+              {isToggled ? "Enable Light Mode" : "Enable Dark Mode"}
+            </label>
+          </div>
         </div>
       </div>
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+};
