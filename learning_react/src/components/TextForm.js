@@ -9,21 +9,42 @@ export default function TextForm(props) {
       let newText=text.toLowerCase();
       setText(newText);
   }
+  const handelClearClick=()=>{
+    let newText=('');
+    setText(newText);
+}
+const handelColorClick=()=>{
+  document.getElementById("myBox").style.color="red";
+}
+const FirstLetter=()=>{
+  let ttext= text.split(" ");
+  let a = ttext.map(word => word[0].toUpperCase() + word.slice(1));
+  setText(a.join(" "));
+}
+const Redo=()=>{
+  document.getElementById("myBox").style.color="black";
+}
     const handleOnChange=(event)=>{
-        console.log("On Changed");
         setText(event.target.value)
     }
-    const[text, setText]= useState('Enter Text Here');
+    const[text, setText]= useState('');
     // setText("New Text");
   return (
     <>
     <div className='container'>
         <h1>{props.heading}</h1>
 <div className="mb-3">
-  <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="10"></textarea>
+  <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="10" placeholder='Enter Your Text Here' />
 </div>
 <button className="btn btn-primary mx-2" onClick={handelUpClick} >Convert to Upper Case</button>
 <button className="btn btn-primary mx-2" onClick={handelLowClick}>Convert to Lower Case</button>
+<button className="btn btn-primary mx-2" onClick={handelClearClick}>Clear Text</button>
+<button className="btn btn-primary mx-2" onClick={handelColorClick}>Color Change To Red</button>
+<button className="btn btn-primary mx-2" onClick={Redo}>Redo Color Change</button>
+<button className="btn btn-primary mx-2" onClick={FirstLetter}>Capatilize First Letter</button>
+
+
+
 </div>
 <div className="container my-3">
   <h1>Your Text Summery</h1>
