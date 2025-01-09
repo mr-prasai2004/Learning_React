@@ -56,10 +56,10 @@ const Redo=()=>{
     }
   return (
     <>
-    <div className='container' style={myStyle}>
-        <h1>{props.heading}</h1>
+    <div className='container' style={{color: props.mode==='dark'?'white' : 'black'}}>
+        <h1 >{props.heading}</h1>
 <div className="mb-3">
-  <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="10" placeholder='Enter Your Text Here'style={myStyle} />
+  <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'gray' : 'white', color: props.mode==='dark'?'white' : 'black'}} id="myBox" rows="10" placeholder='Enter Your Text Here' />
 </div>
 <button className="btn btn-primary mx-2" onClick={handelUpClick} >Convert to Upper Case</button>
 <button className="btn btn-primary mx-2" onClick={handelLowClick}>Convert to Lower Case</button>
@@ -72,7 +72,7 @@ const Redo=()=>{
 
 
 
-<div className="container my-3"style={myStyle}>
+<div className="container my-3">
   <h1>Your Text Summery</h1>
   <p>{text.split(" ").length} Words, {text.length} Characters</p>
   <p>In {0.008 * text.split(" ").length} Minutes takes you to Read the paragraph</p>

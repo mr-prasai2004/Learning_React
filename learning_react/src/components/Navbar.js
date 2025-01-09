@@ -2,17 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 export default function Navbar(props) {
-  // State to track the switch (ON/OFF)
-  const [isToggled, setIsToggled] = useState(false);
-
-  // Function to handle switch toggle
-  const handleToggle = () => {
-    setIsToggled(!isToggled);
-    console.log(isToggled ? "Switch is OFF" : "Switch is ON");
-  };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -42,19 +34,11 @@ export default function Navbar(props) {
             </li>
           </ul>
 
-          {/* On/Off switch */}
-          <div className="form-check form-switch text-white">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              id="toggleSwitch"
-              checked={isToggled}
-              onChange={handleToggle}
-            />
-            <label className="form-check-label" htmlFor="toggleSwitch">
-              {isToggled ? "Enable Light Mode" : "Enable Dark Mode"}
-            </label>
-          </div>
+          <div className={`form-check form-switch text-${props.mode==='light'?'dark' : 'light'}`}>
+  <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.toggleMode}/>
+  <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
+</div>
+          
         </div>
       </div>
     </nav>
