@@ -4,25 +4,35 @@ export default function TextForm(props) {
     const handelUpClick=()=>{
         let newText=text.toUpperCase();
         setText(newText);
+        props.showAlert('Converted To Upper Case','success');
     }
     const handelLowClick=()=>{
       let newText=text.toLowerCase();
       setText(newText);
+      props.showAlert('Converted To Lower Case','success');
   }
   const handelClearClick=()=>{
     let newText=('');
     setText(newText);
+    props.showAlert('Cleared the text','success');
 }
 const handelColorClick=()=>{
   document.getElementById("myBox").style.color="red";
+  props.showAlert('Converted the text Color to Red','success');
 }
 const FirstLetter=()=>{
-  let ttext= text.split(" ");
+  if(!text){
+  }
+  else{
+    let ttext= text.split(" ");
   let a = ttext.map(word => word[0].toUpperCase() + word.slice(1));
   setText(a.join(" "));
+  props.showAlert('Converted First Letter To Capital Case','success');}
+  
 }
 const Redo=()=>{
   document.getElementById("myBox").style.color="black";
+  props.showAlert('Redo the text Color','success');
 }
     const handleOnChange=(event)=>{
         setText(event.target.value)
