@@ -15,18 +15,28 @@ function App() {
     if(mode ==='dark'){
     setMode('light')
     document.body.style.backgroundColor = 'white'
+    showAlert("Light Mode hass been enable","success")
     }
     else{
       setMode('dark')
       document.body.style.backgroundColor = 'gray'
+      showAlert("Dark Mode hass been enable","success")
     }
 
     
   }
+  const [alert, setAlert]=useState(null);
+  const showAlert=(message, type)=>{
+      setAlert({
+          msg: message,
+          type: type
+      })
+      
+  }
   return (
     <>
 <Navbar title='Aayush' mode={mode} toggleMode={toggleMode}/>
-<Alert alert="This is a alert message" />
+<Alert alert={alert} />
 {/* {/* // <div className="container my-3 "> */}
   
 <TextForm heading="Enter your text to analyze below"mode={mode}/> 
