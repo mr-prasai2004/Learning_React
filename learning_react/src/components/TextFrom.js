@@ -6,13 +6,13 @@ export default function TextFrom(props) {
         console.log("UpperCase")
         let a = text.toUpperCase();
         setText(a);
-        props.showAlert('Converted To Upper Case','success');
+        // props.showAlert('Converted To Upper Case','success');
     }
     const onHandleLowerClick=()=>{
         console.log("LowerCase")
         let a = text.toLowerCase();
         setText(a);
-        props.showAlert('Converted To Lower Case','success');
+        // props.showAlert('Converted To Lower Case','success');
     }
     const OnhandleChange=(event)=>{
         console.log("onChange")
